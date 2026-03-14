@@ -10,10 +10,10 @@
 
 <p align="center">
   <a href="https://www.npmjs.com/package/slickenv"><img src="https://img.shields.io/npm/v/slickenv?color=16A34A&label=npm" alt="npm version" /></a>
-  <a href="https://www.npmjs.com/package/slickenv"><img src="https://img.shields.io/npm/dm/slickenv?color=16A34A" alt="npm downloads" /></a>
-  <a href="https://github.com/SlickSpender/slickenv/blob/main/LICENSE"><img src="https://img.shields.io/github/license/SlickSpender/slickenv?color=16A34A" alt="license" /></a>
-  <a href="https://github.com/SlickSpender/slickenv/actions/workflows/publish.yml"><img src="https://img.shields.io/github/actions/workflow/status/SlickSpender/slickenv/publish.yml?label=publish&color=16A34A" alt="publish" /></a>
-  <a href="https://env.slickspender.com"><img src="https://img.shields.io/badge/docs-env.slickspender.com-16A34A" alt="docs" /></a>
+  <a href="https://www.npmjs.com/package/slickenv"><img src="https://img.shields.io/npm/dm/slickenv?color=0284C7" alt="npm downloads" /></a>
+  <a href="https://github.com/SlickSpender/slickenv/blob/main/LICENSE"><img src="https://img.shields.io/github/license/SlickSpender/slickenv?color=6B7280" alt="license" /></a>
+  <a href="https://github.com/SlickSpender/slickenv/actions/workflows/publish.yml"><img src="https://img.shields.io/github/actions/workflow/status/SlickSpender/slickenv/publish.yml?label=publish&color=7C3AED" alt="publish" /></a>
+  <a href="https://env.slickspender.com"><img src="https://img.shields.io/badge/docs-env.slickspender.com-EA580C" alt="docs" /></a>
 </p>
 
 ---
