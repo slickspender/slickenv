@@ -1,8 +1,8 @@
 <p align="center">
-  <img src="https://env.slickspender.com/icon.svg" alt="SlickEnv" width="80" />
+  <img src="https://env.slickspender.com/icon.svg" alt="SlickENV" width="80" />
 </p>
 
-<h1 align="center">SlickEnv</h1>
+<h1 align="center">SlickENV</h1>
 
 <p align="center">
   Securely manage, sync, and version <code>.env</code> files across your team — with end-to-end encryption.
@@ -18,9 +18,9 @@
 
 ---
 
-### Why SlickEnv?
+### Why SlickENV?
 
-> Sharing `.env` files over Slack, email, or sticky notes is insecure and error-prone. SlickEnv gives your team a single source of truth with git-like version control and military-grade encryption.
+> Sharing `.env` files over Slack, email, or sticky notes is insecure and error-prone. SlickENV gives your team a single source of truth with git-like version control and military-grade encryption.
 
 - **End-to-end encrypted** — Private variables are encrypted client-side with AES-256-GCM before leaving your machine
 - **Version history** — Every push creates an immutable version you can diff, rollback, or audit
