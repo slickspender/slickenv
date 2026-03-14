@@ -5,7 +5,7 @@
 <h1 align="center">SlickENV</h1>
 
 <p align="center">
-  Securely manage, sync, and version <code>.env</code> files across your team — with end-to-end encryption.
+  Securely manage, sync, and version <code>.env</code> files across your team - with end-to-end encryption.
 </p>
 
 <p align="center">
