@@ -11,7 +11,8 @@
 <p align="center">
   <a href="https://www.npmjs.com/package/slickenv"><img src="https://img.shields.io/npm/v/slickenv?color=16A34A&label=npm" alt="npm version" /></a>
   <a href="https://www.npmjs.com/package/slickenv"><img src="https://img.shields.io/npm/dm/slickenv?color=16A34A" alt="npm downloads" /></a>
-  <a href="https://github.com/SlickSpender/slickenv/blob/main/LICENSE"><img src="https://img.shields.io/npm/l/slickenv?color=16A34A" alt="license" /></a>
+  <a href="https://github.com/SlickSpender/slickenv/blob/main/LICENSE"><img src="https://img.shields.io/github/license/SlickSpender/slickenv?color=16A34A" alt="license" /></a>
+  <a href="https://github.com/SlickSpender/slickenv/actions/workflows/publish.yml"><img src="https://img.shields.io/github/actions/workflow/status/SlickSpender/slickenv/publish.yml?label=publish&color=16A34A" alt="publish" /></a>
   <a href="https://env.slickspender.com"><img src="https://img.shields.io/badge/docs-env.slickspender.com-16A34A" alt="docs" /></a>
 </p>
 
@@ -286,8 +287,12 @@ SlickEnv uses **client-side AES-256-GCM encryption** — private variables never
 
 ---
 
-<p align="center">
-  <a href="https://env.slickspender.com/docs">Documentation</a> &middot; <a href="https://github.com/SlickSpender/slickenv/issues">Report a Bug</a> &middot; <a href="https://slickspender.com">SlickSpender</a>
-</p>
+## License
 
-<p align="center">MIT License &mdash; <a href="https://slickspender.com">SlickSpender</a></p>
+MIT License — see [LICENSE](LICENSE) for details.
+
+---
+
+<p align="center">
+  <a href="https://env.slickspender.com">Documentation</a> &middot; <a href="https://github.com/SlickSpender/slickenv/issues">Report a Bug</a> &middot; <a href="https://github.com/SlickSpender/slickenv">GitHub</a> &middot; <a href="https://slickspender.com">SlickSpender</a>
+</p>
