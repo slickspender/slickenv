@@ -1,0 +1,77 @@
+name: Publish CLI to npm
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "package.json"
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      id-token: write
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Check if version changed
+        id: version
+        run: |
+          NEW_VERSION=$(node -p "require('./package.json').version")
+          OLD_VERSION=$(git show HEAD~1:package.json | node -p "JSON.parse(require('fs').readFileSync('/dev/stdin','utf8')).version")
+          echo "new=$NEW_VERSION" >> "$GITHUB_OUTPUT"
+          echo "old=$OLD_VERSION" >> "$GITHUB_OUTPUT"
+          if [ "$NEW_VERSION" != "$OLD_VERSION" ]; then
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Skip if version unchanged
+        if: steps.version.outputs.changed != 'true'
+        run: echo "Version unchanged (${{ steps.version.outputs.old }}), skipping publish."
+
+      - uses: oven-sh/setup-bun@v2
+        if: steps.version.outputs.changed == 'true'
+        with:
+          bun-version: latest
+
+      - uses: actions/setup-node@v4
+        if: steps.version.outputs.changed == 'true'
+        with:
+          node-version: 20
+          registry-url: "https://registry.npmjs.org"
+
+      - name: Install dependencies
+        if: steps.version.outputs.changed == 'true'
+        run: bun install
+
+      - name: Build types
+        if: steps.version.outputs.changed == 'true'
+        run: cd types && bun run build
+
+      - name: Build CLI
+        if: steps.version.outputs.changed == 'true'
+        run: bun run build
+
+      - name: Run tests
+        if: steps.version.outputs.changed == 'true'
+        run: bun test src/lib/__tests__/
+
+      - name: Publish to npm
+        if: steps.version.outputs.changed == 'true'
+        run: npm publish --provenance --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Tag release
+        if: steps.version.outputs.changed == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git tag "v${{ steps.version.outputs.new }}"
+          git push origin "v${{ steps.version.outputs.new }}"
