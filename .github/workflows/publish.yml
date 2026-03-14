@@ -1,10 +1,9 @@
-name: Publish CLI to npm
+name: Publish to npm
 
 on:
   push:
     branches: [main]
-    paths:
-      - "package.json"
+    paths: [package.json]
   workflow_dispatch:
 
 jobs:
@@ -13,36 +12,23 @@ jobs:
     permissions:
       contents: write
       id-token: write
-
     steps:
       - uses: actions/checkout@v4
-
       - uses: oven-sh/setup-bun@v2
-        with:
-          bun-version: latest
-
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-          registry-url: "https://registry.npmjs.org"
+          registry-url: https://registry.npmjs.org
 
-      - name: Install, build, and publish
-        run: |
-          bun install
-          cd types && bun run build && cd ..
-          bun run build
-          npm publish --provenance --access public
+      - name: Build and publish
+        run: bun install && bun run build && npm publish --provenance --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-      - name: Get version
-        id: version
-        run: echo "version=$(node -p "require('./package.json').version")" >> "$GITHUB_OUTPUT"
-
-      - name: Tag and release
+      - name: Release
         run: |
-          git tag "v${{ steps.version.outputs.version }}"
-          git push origin "v${{ steps.version.outputs.version }}"
-          gh release create "v${{ steps.version.outputs.version }}" --generate-notes --title "v${{ steps.version.outputs.version }}"
+          VERSION=$(node -p "require('./package.json').version")
+          git tag "v${VERSION}" && git push origin "v${VERSION}"
+          gh release create "v${VERSION}" --generate-notes --title "v${VERSION}"
         env:
           GH_TOKEN: ${{ github.token }}
