@@ -1,6 +1,6 @@
 {
   "name": "slickenv",
-  "version": "1.0.125",
+  "version": "1.0.126",
   "description": "Securely manage, sync, and version .env files across your team with end-to-end encryption",
   "type": "module",
   "license": "MIT",
