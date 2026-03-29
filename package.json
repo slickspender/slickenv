@@ -1,0 +1,92 @@
+{
+  "name": "slickenv",
+  "version": "1.2.121",
+  "description": "CLI-first secret lifecycle security for scanning, protecting, syncing, and rotating .env files",
+  "type": "module",
+  "license": "MIT",
+  "author": {
+    "name": "SlickSpender",
+    "url": "https://www.slickspender.com"
+  },
+  "homepage": "https://env.slickspender.com",
+  "bugs": {
+    "url": "https://github.com/slickspender/slickenv/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/slickspender/slickenv.git"
+  },
+  "workspaces": [
+    "types"
+  ],
+  "keywords": [
+    "env",
+    "dotenv",
+    "environment-variables",
+    "secrets",
+    "secret-scanning",
+    "git-security",
+    "ai-safety",
+    "cli",
+    "sync",
+    "versioning",
+    "rotation",
+    "encryption",
+    "team",
+    "collaboration",
+    "aes-256",
+    "e2e-encryption",
+    "slickenv",
+    "slickspender"
+  ],
+  "bin": {
+    "slickenv": "./bin/run.js"
+  },
+  "oclif": {
+    "bin": "slickenv",
+    "commands": "./dist/commands",
+    "topicSeparator": " ",
+    "plugins": [
+      "@oclif/plugin-help",
+      "@oclif/plugin-version"
+    ],
+    "topics": {
+      "git": { "description": "Git protection — block future leaks, audit old history, and clean past mistakes" },
+      "ai":  { "description": "AI protection — stop Cursor, Claude Code, Copilot, and similar tools from reading secrets" },
+      "members": { "description": "Team access — invite, list, and remove project members" }
+    }
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "bin",
+    "dist",
+    "oclif.manifest.json"
+  ],
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "scripts": {
+    "build": "cd types && tsc --project tsconfig.json && cd .. && tsc --build --force",
+    "postbuild": "oclif manifest",
+    "typecheck": "tsc --noEmit",
+    "test": "bun test src/lib/__tests__/",
+    "test:e2e": "bun test src/__tests__/e2e/",
+    "lint": "tsc --noEmit",
+    "prepack": "bun run build"
+  },
+  "dependencies": {
+    "@oclif/core": "^4.0.0",
+    "@oclif/plugin-help": "^6.0.0",
+    "@oclif/plugin-version": "^2.0.0",
+    "chalk": "^5.4.0",
+    "convex": "^1.0.0"
+  },
+  "devDependencies": {
+    "@oclif/test": "^4.0.0",
+    "@slickenv/types": "workspace:*",
+    "@types/node": "^22.0.0",
+    "oclif": "^4.0.0",
+    "typescript": "^5.9.3"
+  }
+}
