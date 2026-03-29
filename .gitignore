@@ -1,0 +1,26 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+*.tsbuildinfo
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# OS
+.DS_Store
+
+# Bun
+bun.lockb
+
+# SlickEnv CLI dev
+.slickenv
+oclif.manifest.json
+
+# Claude
+.claude/
+.agents/
+skills-lock.json
